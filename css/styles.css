@@ -295,7 +295,10 @@ box-shadow:0 2px 12px rgba(0,0,0,.08);
 
 .collection__img
 {
-  width: 100px;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .collection__title
@@ -689,10 +692,12 @@ box-shadow:0 2px 12px rgba(0,0,0,.08);
     padding: .5rem 3rem 0;
   }
 
-  .collection__img
-  {
-    width: 130px;
-  }
+ .collection__img
+{
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+}
 
   .featured__container,
   .sponsors__container,
