@@ -386,9 +386,9 @@
                     <h2>Sipariş Özeti</h2>
 
                     <div class="cart-summary-badge">
-                        <i class="bx bx-package"></i>
-                        <span>Standart kargo ücreti siparişe eklenir.</span>
-                    </div>
+    <i class="bx bx-package"></i>
+    <span>1000₺ ve üzeri siparişlerde kargo ücretsizdir.</span>
+</div>
 
                     <div class="cart-summary-row">
                         <span>Toplam Ürün</span>
@@ -433,6 +433,7 @@
 
     <script>
         const SHIPPING_PRICE = 59.99;
+        const FREE_SHIPPING_LIMIT = 1000;
 
         function formatPrice(price) {
             return Number(price).toFixed(2) + "₺";
@@ -549,8 +550,13 @@
                 cartItems.appendChild(item);
             });
 
-            const shipping = subtotal > 0 ? SHIPPING_PRICE : 0;
-            const total = subtotal + shipping;
+           let shipping = 0;
+
+if (subtotal > 0 && subtotal < FREE_SHIPPING_LIMIT) {
+    shipping = SHIPPING_PRICE;
+}
+
+const total = subtotal + shipping;
 
             summaryCount.textContent = totalQuantity;
             summarySubtotal.textContent = formatPrice(subtotal);
