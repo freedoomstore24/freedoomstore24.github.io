@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freedom Regular Fit T-Shirt</title>
+    <title>Freedom Regular Fit T-Shirt | FREEDOM</title>
+
     <link rel="stylesheet" href="css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
@@ -26,7 +28,9 @@
         </div>
 
         <div>
-            <i class="bx bx-cart nav__cart"></i>
+            <a href="sepet.html" class="nav__cart-link">
+                <i class="bx bx-cart nav__cart"></i>
+            </a>
         </div>
     </nav>
 </header>
@@ -51,8 +55,20 @@
                 </p>
 
                 <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-                    <a href="sepet.html" class="button">Sepete Ekle</a>
-                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">Instagram’dan Sipariş Ver</a>
+                    <button
+                        class="button add-to-cart"
+                        data-id="urun3"
+                        data-name="Freedom Regular Fit T-Shirt"
+                        data-price="399"
+                        data-image="img/tshirt8.jpeg"
+                        style="border:none; cursor:pointer;"
+                    >
+                        Sepete Ekle
+                    </button>
+
+                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">
+                        Instagram’dan Sipariş Ver
+                    </a>
                 </div>
             </div>
 
@@ -60,5 +76,6 @@
     </section>
 </main>
 
+<script src="js/main.js"></script>
 </body>
 </html>
