@@ -1,7 +1,7 @@
 /*==================== MENU ====================*/
 const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId),
-        nav = document.getElementById(navId);
+  const toggle = document.getElementById(toggleId);
+  const nav = document.getElementById(navId);
 
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
@@ -9,6 +9,7 @@ const showMenu = (toggleId, navId) => {
     });
   }
 };
+
 showMenu("nav-toggle", "nav-menu");
 
 /*==================== CART SYSTEM ====================*/
@@ -42,11 +43,12 @@ function showToast(title, text = "") {
 
   const toast = document.createElement("div");
   toast.className = "toast";
+
   toast.innerHTML = `
     <div class="toast__icon"><i class='bx bx-check-circle'></i></div>
     <div class="toast__content">
       <div class="toast__title">${title}</div>
-      <div class="toast__text">${text}</div>
+      ${text ? `<div class="toast__text">${text}</div>` : ""}
     </div>
   `;
 
@@ -87,6 +89,7 @@ function removeFromCart(productId) {
   }
 }
 
+/*==================== INIT ====================*/
 document.addEventListener("DOMContentLoaded", () => {
   updateCartBadges();
 
