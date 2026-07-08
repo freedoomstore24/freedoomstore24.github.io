@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ===== BOXICONS ===== -->
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- BOXICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
 
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
 
     <title>FREEDOM | Premium T-Shirts & Sweatshirts</title>
 </head>
@@ -16,12 +16,10 @@
     <!--===== HEADER =====-->
     <header class="l-header">
         <nav class="nav bd-grid">
-            <div>
-                <a href="index.html" class="nav__logo">
-                    <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" width="45">
-                    <span>FREEDOM</span>
-                </a>
-            </div>
+            <a href="index.html" class="nav__logo">
+                <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" />
+                <span>FREEDOM</span>
+            </a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
@@ -31,26 +29,10 @@
                 </ul>
             </div>
 
-            <div>
-                <a href="sepet.html" class="nav__cart" style="position: relative; display: inline-flex; align-items:center;">
+            <div class="nav__actions">
+                <a href="sepet.html" class="nav__cart" aria-label="Sepet">
                     <i class="bx bx-cart"></i>
-                    <span id="cart-count" style="
-                        position:absolute;
-                        top:-8px;
-                        right:-10px;
-                        background:#000;
-                        color:#fff;
-                        font-size:12px;
-                        min-width:18px;
-                        height:18px;
-                        border-radius:50%;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        padding:0 5px;
-                        font-weight:700;
-                        line-height:1;
-                    ">0</span>
+                    <span class="cart-badge" id="cart-count">0</span>
                 </a>
                 <i class="bx bx-menu nav__toggle" id="nav-toggle"></i>
             </div>
@@ -62,48 +44,56 @@
         <section class="home" id="home">
             <div class="home__container bd-grid">
                 <div class="home__data">
-                    <h1 class="home__title">SINIRLAR<br><span>AŞILMAK İÇİNDİR</span></h1>
+                    <h1 class="home__title">
+                        SINIRLAR<br />
+                        <span>AŞILMAK İÇİNDİR</span>
+                    </h1>
                     <a href="#featured" class="button">KOLEKSİYONU KEŞFET</a>
                 </div>
 
-                <img src="img/ana sayfa.jpeg" class="home__img" alt="Freedom Hoodie">
+                <img src="img/ana sayfa.jpeg" class="home__img" alt="Freedom Hoodie" />
             </div>
         </section>
 
         <!--===== COLLECTION =====-->
         <section class="collection section">
             <div class="collection__container bd-grid">
-
                 <div class="collection__box">
-                    <img src="img/model1.jpeg" alt="Freedom Oversize T-Shirt" class="collection__img">
-
                     <div class="collection__data">
-                        <h2 class="collection__title"><span class="collection__subtitle">oversize</span><br>T-shirt</h2>
+                        <h2 class="collection__title">
+                            <span class="collection__subtitle">oversize</span><br />
+                            T-shirt
+                        </h2>
                         <a href="urun1.html" class="collection__view">Koleksiyonu Gör</a>
                     </div>
+
+                    <img src="img/model1.jpeg" alt="Freedom Oversize T-Shirt" class="collection__img" />
                 </div>
 
                 <div class="collection__box">
                     <div class="collection__data">
-                        <h2 class="collection__title"><span class="collection__subtitle">premium</span><br>sweatshirt</h2>
+                        <h2 class="collection__title">
+                            <span class="collection__subtitle">premium</span><br />
+                            sweatshirt
+                        </h2>
                         <a href="urun2.html" class="collection__view">Koleksiyonu Gör</a>
                     </div>
 
-                    <img src="img/model-sweat.jpeg" alt="Freedom Premium Sweatshirt" class="collection__img">
+                    <img src="img/model-sweat.jpeg" alt="Freedom Premium Sweatshirt" class="collection__img" />
                 </div>
             </div>
         </section>
 
-        <!--===== FEATURED PRODUCTS =====-->
+        <!--===== FEATURED =====-->
         <section class="featured section" id="featured">
             <h2 class="section-title">POPÜLER ÜRÜNLER</h2>
-            <a href="#" class="section-all">Tümünü Gör</a>
+            <a href="#new" class="section-all">Yeni koleksiyonu da keşfet</a>
 
             <div class="featured__container bd-grid">
                 <a href="urun1.html" class="featured__product">
                     <div class="featured__box">
                         <div class="featured__new">YENİ</div>
-                        <img src="img/tshirt4.jpeg" class="featured__img" alt="Freedom Oversize T-Shirt">
+                        <img src="img/tshirt4.jpeg" class="featured__img" alt="Freedom Oversize T-Shirt" />
                     </div>
 
                     <div class="featured__data">
@@ -117,11 +107,11 @@
                 <a href="urun2.html" class="featured__product">
                     <div class="featured__box">
                         <div class="featured__new">YENİ</div>
-                        <img src="img/sweat4.jpeg" class="featured__img" alt="Freedom Heavy Sweatshirt">
+                        <img src="img/sweat4.jpeg" class="featured__img" alt="Freedom Heavy Sweatshirt" />
                     </div>
 
                     <div class="featured__data">
-                        <h3 class="featured__name">Freedom Heavy Sweatshirt(sadece üst)</h3>
+                        <h3 class="featured__name">Freedom Heavy Sweatshirt (Sadece Üst)</h3>
                         <span class="featured__price">499₺</span>
                         <p class="featured__info">Beden: S / M / L / XL</p>
                         <p class="featured__info">Renk: Siyah / Beyaz</p>
@@ -131,11 +121,11 @@
                 <a href="urun3.html" class="featured__product">
                     <div class="featured__box">
                         <div class="featured__new">YENİ</div>
-                        <img src="img/tshirt8.jpeg" class="featured__img" alt="Freedom regular fit T-shirt">
+                        <img src="img/tshirt8.jpeg" class="featured__img" alt="Freedom Regular Fit T-Shirt" />
                     </div>
 
                     <div class="featured__data">
-                        <h3 class="featured__name">Freedom regular fit T-shirt</h3>
+                        <h3 class="featured__name">Freedom Regular Fit T-Shirt</h3>
                         <span class="featured__price">399₺</span>
                         <p class="featured__info">Beden: S / M / L / XL</p>
                         <p class="featured__info">Renk: Siyah / Beyaz</p>
@@ -145,11 +135,11 @@
                 <a href="urun4.html" class="featured__product">
                     <div class="featured__box">
                         <div class="featured__new">YENİ</div>
-                        <img src="img/tshirt12.jpeg" class="featured__img" alt="Freedom Premium Polo Yaka">
+                        <img src="img/tshirt12.jpeg" class="featured__img" alt="Freedom Premium Polo Yaka" />
                     </div>
 
                     <div class="featured__data">
-                        <h3 class="featured__name">Freedom Premium polo yaka</h3>
+                        <h3 class="featured__name">Freedom Premium Polo Yaka</h3>
                         <span class="featured__price">449₺</span>
                         <p class="featured__info">Beden: S / M / L / XL</p>
                         <p class="featured__info">Renk: Siyah / Beyaz</p>
@@ -160,143 +150,184 @@
 
         <!--===== OFFER =====-->
         <section class="offer section">
-            <div class="offer__bg">
-                <div class="offer__data">
-                    <h2 class="offer__title">%20 açılışa özel İndirim</h2>
-                    <p class="offer__description">İlk siparişlerde tüm Freedom ürünlerinde geçerli.</p>
-
-                    <a href="#featured" class="button">HEMEN AL</a>
+            <div class="bd-grid">
+                <div class="offer__bg">
+                    <div class="offer__data">
+                        <h2 class="offer__title">%20 Açılışa Özel İndirim</h2>
+                        <p class="offer__description">İlk siparişlerde tüm Freedom ürünlerinde geçerli.</p>
+                        <a href="#new" class="button">HEMEN AL</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!--===== NEW ARRIVALS =====-->
-        <section class="featured section" id="new">
+        <!--===== NEW COLLECTION =====-->
+        <section class="section" id="new">
             <h2 class="section-title">YENİ KOLEKSİYON</h2>
-            <a href="#" class="section-all">Tümünü Gör</a>
+            <a href="#featured" class="section-all">Popüler ürünlere de göz at</a>
 
             <div class="new__container bd-grid">
-
                 <!-- ÜRÜN 1 -->
-                <div class="new__box">
-                    <img src="img/tshirt4.jpeg" alt="Freedom Oversize T-Shirt" class="new__img">
-
-                    <div class="new__link">
-                        <a href="urun1.html" class="button">İNCELE</a>
+                <div class="new__card">
+                    <div class="new__image-wrap">
+                        <img src="img/tshirt4.jpeg" alt="Freedom Oversize T-Shirt" class="new__img" />
+                        <div class="new__overlay">
+                            <a href="urun1.html" class="button">İNCELE</a>
+                        </div>
                     </div>
 
-                    <div style="width:100%; margin-top:12px;">
-                        <button class="button add-to-cart"
-                            data-id="urun1"
-                            data-name="Freedom Oversize T-Shirt"
-                            data-price="399"
-                            data-image="img/tshirt4.jpeg"
-                            style="width:100%; border:none; cursor:pointer;">
-                            Sepete Ekle
-                        </button>
+                    <div class="new__content">
+                        <h3 class="new__name">Freedom Oversize T-Shirt</h3>
+                        <span class="new__price">399₺</span>
+
+                        <div class="new__actions">
+                            <button
+                                class="button add-to-cart"
+                                data-id="urun1"
+                                data-name="Freedom Oversize T-Shirt"
+                                data-price="399"
+                                data-image="img/tshirt4.jpeg"
+                            >
+                                Sepete Ekle
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ÜRÜN 5 -->
-                <div class="new__box">
-                    <img src="img/tshirt6.jpeg" alt="Freedom Basic T-Shirt" class="new__img">
-
-                    <div class="new__link">
-                        <a href="urun5.html" class="button">İNCELE</a>
+                <div class="new__card">
+                    <div class="new__image-wrap">
+                        <img src="img/tshirt6.jpeg" alt="Freedom Basic T-Shirt" class="new__img" />
+                        <div class="new__overlay">
+                            <a href="urun5.html" class="button">İNCELE</a>
+                        </div>
                     </div>
 
-                    <div style="width:100%; margin-top:12px;">
-                        <button class="button add-to-cart"
-                            data-id="urun5"
-                            data-name="Freedom Basic T-Shirt"
-                            data-price="379"
-                            data-image="img/tshirt6.jpeg"
-                            style="width:100%; border:none; cursor:pointer;">
-                            Sepete Ekle
-                        </button>
+                    <div class="new__content">
+                        <h3 class="new__name">Freedom Basic T-Shirt</h3>
+                        <span class="new__price">379₺</span>
+
+                        <div class="new__actions">
+                            <button
+                                class="button add-to-cart"
+                                data-id="urun5"
+                                data-name="Freedom Basic T-Shirt"
+                                data-price="379"
+                                data-image="img/tshirt6.jpeg"
+                            >
+                                Sepete Ekle
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ÜRÜN 3 -->
-                <div class="new__box">
-                    <img src="img/tshirt8.jpeg" alt="Freedom Regular Fit T-Shirt" class="new__img">
-
-                    <div class="new__link">
-                        <a href="urun3.html" class="button">İNCELE</a>
+                <div class="new__card">
+                    <div class="new__image-wrap">
+                        <img src="img/tshirt8.jpeg" alt="Freedom Regular Fit T-Shirt" class="new__img" />
+                        <div class="new__overlay">
+                            <a href="urun3.html" class="button">İNCELE</a>
+                        </div>
                     </div>
 
-                    <div style="width:100%; margin-top:12px;">
-                        <button class="button add-to-cart"
-                            data-id="urun3"
-                            data-name="Freedom Regular Fit T-Shirt"
-                            data-price="399"
-                            data-image="img/tshirt8.jpeg"
-                            style="width:100%; border:none; cursor:pointer;">
-                            Sepete Ekle
-                        </button>
+                    <div class="new__content">
+                        <h3 class="new__name">Freedom Regular Fit T-Shirt</h3>
+                        <span class="new__price">399₺</span>
+
+                        <div class="new__actions">
+                            <button
+                                class="button add-to-cart"
+                                data-id="urun3"
+                                data-name="Freedom Regular Fit T-Shirt"
+                                data-price="399"
+                                data-image="img/tshirt8.jpeg"
+                            >
+                                Sepete Ekle
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ÜRÜN 6 -->
-                <div class="new__box">
-                    <img src="img/tshirt3.jpeg" alt="Freedom Street T-Shirt" class="new__img">
-
-                    <div class="new__link">
-                        <a href="urun6.html" class="button">İNCELE</a>
+                <div class="new__card">
+                    <div class="new__image-wrap">
+                        <img src="img/tshirt3.jpeg" alt="Freedom Street T-Shirt" class="new__img" />
+                        <div class="new__overlay">
+                            <a href="urun6.html" class="button">İNCELE</a>
+                        </div>
                     </div>
 
-                    <div style="width:100%; margin-top:12px;">
-                        <button class="button add-to-cart"
-                            data-id="urun6"
-                            data-name="Freedom Street T-Shirt"
-                            data-price="389"
-                            data-image="img/tshirt3.jpeg"
-                            style="width:100%; border:none; cursor:pointer;">
-                            Sepete Ekle
-                        </button>
+                    <div class="new__content">
+                        <h3 class="new__name">Freedom Street T-Shirt</h3>
+                        <span class="new__price">389₺</span>
+
+                        <div class="new__actions">
+                            <button
+                                class="button add-to-cart"
+                                data-id="urun6"
+                                data-name="Freedom Street T-Shirt"
+                                data-price="389"
+                                data-image="img/tshirt3.jpeg"
+                            >
+                                Sepete Ekle
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ÜRÜN 4 -->
-                <div class="new__box">
-                    <img src="img/tshirt12.jpeg" alt="Freedom Premium Polo Yaka" class="new__img">
-
-                    <div class="new__link">
-                        <a href="urun4.html" class="button">İNCELE</a>
+                <div class="new__card">
+                    <div class="new__image-wrap">
+                        <img src="img/tshirt12.jpeg" alt="Freedom Premium Polo Yaka" class="new__img" />
+                        <div class="new__overlay">
+                            <a href="urun4.html" class="button">İNCELE</a>
+                        </div>
                     </div>
 
-                    <div style="width:100%; margin-top:12px;">
-                        <button class="button add-to-cart"
-                            data-id="urun4"
-                            data-name="Freedom Premium Polo Yaka"
-                            data-price="449"
-                            data-image="img/tshirt12.jpeg"
-                            style="width:100%; border:none; cursor:pointer;">
-                            Sepete Ekle
-                        </button>
+                    <div class="new__content">
+                        <h3 class="new__name">Freedom Premium Polo Yaka</h3>
+                        <span class="new__price">449₺</span>
+
+                        <div class="new__actions">
+                            <button
+                                class="button add-to-cart"
+                                data-id="urun4"
+                                data-name="Freedom Premium Polo Yaka"
+                                data-price="449"
+                                data-image="img/tshirt12.jpeg"
+                            >
+                                Sepete Ekle
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ÜRÜN 7 -->
-                <div class="new__box">
-                    <img src="img/tshirt13.jpeg" alt="Freedom Signature T-Shirt" class="new__img">
-
-                    <div class="new__link">
-                        <a href="urun7.html" class="button">İNCELE</a>
+                <div class="new__card">
+                    <div class="new__image-wrap">
+                        <img src="img/tshirt13.jpeg" alt="Freedom Premium T-Shirt" class="new__img" />
+                        <div class="new__overlay">
+                            <a href="urun7.html" class="button">İNCELE</a>
+                        </div>
                     </div>
 
-                    <div style="width:100%; margin-top:12px;">
-                        <button class="button add-to-cart"
-                            data-id="urun7"
-                            data-name="Freedom Signature T-Shirt"
-                            data-price="409"
-                            data-image="img/tshirt13.jpeg"
-                            style="width:100%; border:none; cursor:pointer;">
-                            Sepete Ekle
-                        </button>
+                    <div class="new__content">
+                        <h3 class="new__name">Freedom Premium T-Shirt</h3>
+                        <span class="new__price">449₺</span>
+
+                        <div class="new__actions">
+                            <button
+                                class="button add-to-cart"
+                                data-id="urun7"
+                                data-name="Freedom Premium T-Shirt"
+                                data-price="449"
+                                data-image="img/tshirt13.jpeg"
+                            >
+                                Sepete Ekle
+                            </button>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -305,11 +336,13 @@
             <div class="newsletter__container bd-grid">
                 <div class="newsletter__subscribed">
                     <h2 class="section-title">BİZDEN HABERLER</h2>
-                    <p class="newsletter__description">Yeni ürünler ve kampanyalar için e-posta adresini bırak.</p>
+                    <p class="newsletter__description">
+                        Yeni ürünler, stok güncellemeleri ve kampanyalar için e-posta adresini bırak.
+                    </p>
 
-                    <form action="" class="newsletter__form">
-                        <input type="text" class="newsletter__input" placeholder="E-posta adresiniz">
-                        <a href="#" class="button">KAYIT OL</a>
+                    <form class="newsletter__form">
+                        <input type="email" class="newsletter__input" placeholder="E-posta adresiniz" />
+                        <button type="submit" class="button">KAYIT OL</button>
                     </form>
                 </div>
             </div>
@@ -348,7 +381,7 @@
                 <h3 class="footer__title">İLETİŞİM</h3>
 
                 <a href="https://instagram.com/freedoom_store24" target="_blank" class="footer__social">
-                    <i class='bx bxl-instagram-alt'></i> @freedoom_store24
+                    <i class="bx bxl-instagram-alt"></i> @freedoom_store24
                 </a>
 
                 <p class="footer__link">E-posta: freedomstore002@gmail.com</p>
@@ -359,59 +392,6 @@
         <p class="footer__copy">&#169; 2026 FREEDOM. Tüm hakları saklıdır.</p>
     </footer>
 
-    <!--===== MAIN JS =====-->
     <script src="js/main.js"></script>
-
-    <!--===== ADD TO CART + LIVE CART COUNT =====-->
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const addToCartButtons = document.querySelectorAll(".add-to-cart");
-        const cartCount = document.getElementById("cart-count");
-
-        function getCart() {
-            return JSON.parse(localStorage.getItem("freedomCart")) || [];
-        }
-
-        function saveCart(cart) {
-            localStorage.setItem("freedomCart", JSON.stringify(cart));
-        }
-
-        function updateCartCount() {
-            const cart = getCart();
-            const totalCount = cart.reduce((total, item) => total + item.quantity, 0);
-
-            if (cartCount) {
-                cartCount.textContent = totalCount;
-            }
-        }
-
-        addToCartButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                const product = {
-                    id: this.dataset.id,
-                    name: this.dataset.name,
-                    price: Number(this.dataset.price),
-                    image: this.dataset.image,
-                    quantity: 1
-                };
-
-                let cart = getCart();
-                const existingProduct = cart.find(item => item.id === product.id);
-
-                if (existingProduct) {
-                    existingProduct.quantity += 1;
-                } else {
-                    cart.push(product);
-                }
-
-                saveCart(cart);
-                updateCartCount();
-                alert(product.name + " sepete eklendi.");
-            });
-        });
-
-        updateCartCount();
-    });
-    </script>
 </body>
 </html>
