@@ -1,112 +1,102 @@
 /*===== MENU SHOW =====*/ 
 const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId),
-        nav = document.getElementById(navId)
+  const toggle = document.getElementById(toggleId);
+  const nav = document.getElementById(navId);
 
-  if(toggle && nav){
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('show')
-    })
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
   }
-}
-showMenu('nav-toggle','nav-menu')
+};
 
-/*===== CART SYSTEM =====*/
+showMenu("nav-toggle", "nav-menu");
+
+/*===== CART STORAGE =====*/
+const CART_KEY = "freedomCart";
+
 function getCart() {
-  return JSON.parse(localStorage.getItem("freedomCart")) || [];
+  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
 
 function saveCart(cart) {
-  localStorage.setItem("freedomCart", JSON.stringify(cart));
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
+function getCartCount() {
+  const cart = getCart();
+  return cart.reduce((total, item) => total + item.quantity, 0);
+}
+
+/*===== CART BADGE =====*/
+function updateCartBadges() {
+  const count = getCartCount();
+  const badges = document.querySelectorAll("#cart-count, .cart-badge");
+
+  badges.forEach((badge) => {
+    badge.textContent = count;
+  });
+}
+
+/*===== TOAST =====*/
+function showCartToast(message) {
+  let toast = document.getElementById("cart-toast");
+
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "cart-toast";
+    toast.className = "cart-toast";
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(window.cartToastTimeout);
+  window.cartToastTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2200);
+}
+
+/*===== ADD TO CART =====*/
 function addToCart(product) {
   const cart = getCart();
-
-  const existingProduct = cart.find(item => item.id === product.id);
+  const existingProduct = cart.find((item) => item.id === product.id);
 
   if (existingProduct) {
     existingProduct.quantity += 1;
   } else {
     cart.push({
       ...product,
-      quantity: 1
+      quantity: 1,
     });
   }
 
   saveCart(cart);
-  alert(product.name + " sepete eklendi!");
+  updateCartBadges();
+  showCartToast(product.name + " sepete eklendi.");
 }
 
-function removeFromCart(productId) {
-  let cart = getCart();
-  cart = cart.filter(item => item.id !== productId);
-  saveCart(cart);
-  renderCart();
-}
-
-function renderCart() {
-  const cartContainer = document.getElementById("cart-items");
-  const totalContainer = document.getElementById("cart-total");
-  const cartCount = document.getElementById("cart-count");
-
-  if (!cartContainer || !totalContainer) return;
-
-  const cart = getCart();
-
-  cartContainer.innerHTML = "";
-
-  if (cart.length === 0) {
-    cartContainer.innerHTML = "<p>Sepetiniz şu anda boş.</p>";
-    totalContainer.textContent = "0₺";
-    if (cartCount) cartCount.textContent = "0";
-    return;
-  }
-
-  let total = 0;
-  let totalQuantity = 0;
-
-  cart.forEach(product => {
-    total += product.price * product.quantity;
-    totalQuantity += product.quantity;
-
-    const item = document.createElement("div");
-    item.classList.add("cart-product");
-
-    item.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <div class="cart-product-info">
-        <div class="cart-product-name">${product.name}</div>
-        <div class="cart-product-detail">Adet: ${product.quantity}</div>
-        <div class="cart-product-detail">Beden: S / M / L / XL</div>
-        <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
-      </div>
-      <div class="cart-product-price">${product.price * product.quantity}₺</div>
-      <button class="cart-remove-btn" onclick="removeFromCart('${product.id}')">Sil</button>
-    `;
-
-    cartContainer.appendChild(item);
-  });
-
-  totalContainer.textContent = total + "₺";
-  if (cartCount) cartCount.textContent = totalQuantity;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderCart();
-
+/*===== BUTTON EVENTS =====*/
+function bindAddToCartButtons() {
   const addButtons = document.querySelectorAll(".add-to-cart");
 
-  addButtons.forEach(button => {
+  addButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const product = {
         id: button.dataset.id,
         name: button.dataset.name,
         price: Number(button.dataset.price),
-        image: button.dataset.image
+        image: button.dataset.image,
       };
 
       addToCart(product);
     });
   });
+}
+
+/*===== INIT =====*/
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartBadges();
+  bindAddToCartButtons();
 });
