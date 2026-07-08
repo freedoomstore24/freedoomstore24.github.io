@@ -12,42 +12,88 @@
         .cart-page{
             padding: 7rem 0 4rem;
             min-height: 100vh;
-            background: #f8f8f8;
+            background: #f7f7f7;
         }
 
         .cart-wrapper{
-            max-width: 1100px;
+            max-width: 1180px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        .cart-title{
-            text-align: center;
-            font-size: 2rem;
+        .cart-top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cart-title{
+            font-size: 2rem;
             color: #111;
+            margin: 0;
+        }
+
+        .cart-subtitle{
+            color: #666;
+            font-size: .95rem;
+            margin-top: .35rem;
+        }
+
+        .cart-clear-btn{
+            border: none;
+            background: #111;
+            color: #fff;
+            padding: .9rem 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .cart-clear-btn:hover{
+            background: #2b2b2b;
+            transform: translateY(-2px);
         }
 
         .cart-grid{
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
+            align-items: start;
         }
 
         .cart-products,
         .cart-summary{
             background: #fff;
-            border-radius: 16px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.06);
+        }
+
+        .cart-products{
             padding: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,.06);
+        }
+
+        .cart-summary{
+            padding: 1.5rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .cart-list-title{
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: #111;
         }
 
         .cart-product{
             display: grid;
-            grid-template-columns: 90px 1fr auto auto;
-            gap: 1rem;
+            grid-template-columns: 110px 1fr auto;
+            gap: 1.2rem;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             border-bottom: 1px solid #eee;
         }
 
@@ -55,100 +101,237 @@
             border-bottom: none;
         }
 
-        .cart-product img{
-            width: 90px;
-            height: 90px;
+        .cart-product-image{
+            width: 110px;
+            height: 110px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-product-image img{
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 12px;
-            background: #f3f3f3;
         }
 
         .cart-product-name{
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: .35rem;
             color: #111;
+            margin-bottom: .35rem;
         }
 
-        .cart-product-detail{
-            font-size: .9rem;
+        .cart-product-meta{
+            font-size: .92rem;
             color: #666;
-            margin-bottom: .2rem;
+            line-height: 1.7;
         }
 
         .cart-product-price{
+            margin-top: .75rem;
             font-size: 1rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .cart-product-right{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: .85rem;
+        }
+
+        .qty-box{
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            background: #f7f7f7;
+            border-radius: 999px;
+            padding: .35rem;
+        }
+
+        .qty-btn{
+            width: 34px;
+            height: 34px;
+            border: none;
+            border-radius: 50%;
+            background: #111;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .2s;
+        }
+
+        .qty-btn:hover{
+            background: #333;
+        }
+
+        .qty-number{
+            min-width: 28px;
+            text-align: center;
+            font-weight: 700;
+            color: #111;
+            font-size: 1rem;
+        }
+
+        .cart-line-total{
+            font-size: 1.05rem;
             font-weight: 700;
             color: #111;
         }
 
         .cart-remove-btn{
             border: none;
-            background: #111;
-            color: #fff;
-            padding: .7rem 1rem;
-            border-radius: 8px;
+            background: transparent;
+            color: #888;
+            font-weight: 700;
             cursor: pointer;
-            font-weight: 600;
+            transition: .2s;
+        }
+
+        .cart-remove-btn:hover{
+            color: #111;
         }
 
         .cart-summary h2{
-            font-size: 1.2rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            color: #111;
         }
 
-        .cart-summary-row,
+        .cart-summary-row{
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-size: .98rem;
+        }
+
         .cart-summary-total{
             display: flex;
             justify-content: space-between;
-            margin-bottom: .9rem;
-        }
-
-        .cart-summary-total{
-            margin-top: 1.2rem;
+            gap: 1rem;
+            margin-top: 1.3rem;
             padding-top: 1rem;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #ececec;
             font-size: 1.15rem;
             font-weight: 700;
             color: #111;
         }
 
-        .cart-note{
-            font-size: .92rem;
+        .cart-summary-note{
+            margin: 1rem 0 1.35rem;
             color: #666;
-            line-height: 1.6;
-            margin: 1rem 0 1.25rem;
+            font-size: .93rem;
+            line-height: 1.7;
         }
 
-        .cart-instagram{
+        .cart-summary-badge{
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .88rem;
+            color: #555;
+            background: #f7f7f7;
+            padding: .7rem .9rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .cart-summary-badge i{
+            font-size: 1rem;
+        }
+
+        .cart-actions{
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+        }
+
+        .cart-actions .button{
             width: 100%;
             text-align: center;
         }
 
-        .cart-back{
+        .cart-secondary-btn{
             display: inline-block;
-            margin-top: 1rem;
-            font-size: .95rem;
-            color: #555;
+            width: 100%;
+            text-align: center;
+            background: #f1f1f1;
+            color: #111;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: .3s;
         }
 
-        @media screen and (max-width: 768px){
+        .cart-secondary-btn:hover{
+            background: #e7e7e7;
+            transform: translateY(-2px);
+        }
+
+        .empty-cart{
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .empty-cart i{
+            font-size: 3rem;
+            color: #111;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart h3{
+            font-size: 1.4rem;
+            margin-bottom: .7rem;
+            color: #111;
+        }
+
+        .empty-cart p{
+            color: #666;
+            margin-bottom: 1.4rem;
+        }
+
+        @media screen and (max-width: 900px){
             .cart-grid{
                 grid-template-columns: 1fr;
             }
 
-            .cart-product{
-                grid-template-columns: 1fr;
-                text-align: left;
+            .cart-summary{
+                position: static;
             }
+        }
 
-            .cart-product img{
-                width: 80px;
-                height: 80px;
+        @media screen and (max-width: 650px){
+            .cart-page{
+                padding-top: 6.5rem;
             }
 
             .cart-title{
                 font-size: 1.6rem;
+            }
+
+            .cart-product{
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .cart-product-right{
+                align-items: flex-start;
+            }
+
+            .cart-product-image{
+                width: 100%;
+                max-width: 180px;
+                height: 180px;
             }
         }
     </style>
@@ -164,7 +347,7 @@
             </a>
         </div>
 
-        <div class="nav__menu">
+        <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html#featured" class="nav__link">Ürünler</a></li>
                 <li class="nav__item"><a href="index.html#new" class="nav__link">Yeni Sezon</a></li>
@@ -182,45 +365,63 @@
 
 <main class="cart-page">
     <div class="cart-wrapper">
-        <h1 class="cart-title">Sepetim</h1>
+
+        <div class="cart-top">
+            <div>
+                <h1 class="cart-title">Sepetim</h1>
+                <p class="cart-subtitle">Seçtiğin ürünleri gözden geçir ve siparişini tamamla.</p>
+            </div>
+
+            <button class="cart-clear-btn" onclick="clearCart()">Sepeti Temizle</button>
+        </div>
 
         <div class="cart-grid">
             <div class="cart-products">
+                <h2 class="cart-list-title">Sepetteki Ürünler</h2>
                 <div id="cart-items"></div>
             </div>
 
             <div class="cart-summary">
                 <h2>Sipariş Özeti</h2>
 
+                <div class="cart-summary-badge">
+                    <i class='bx bx-package'></i>
+                    <span>Standart kargo ücreti siparişe eklenir.</span>
+                </div>
+
                 <div class="cart-summary-row">
-                    <span>Ürün Adedi</span>
+                    <span>Toplam Ürün</span>
                     <span id="cart-count">0</span>
                 </div>
 
                 <div class="cart-summary-row">
                     <span>Ara Toplam</span>
-                    <span id="cart-subtotal">0₺</span>
+                    <span id="cart-subtotal">0.00₺</span>
                 </div>
 
                 <div class="cart-summary-row">
                     <span>Kargo</span>
-                    <span>59.99₺</span>
+                    <span id="cart-shipping">0.00₺</span>
                 </div>
 
                 <div class="cart-summary-total">
-                    <span>Toplam</span>
-                    <span id="cart-total">0₺</span>
+                    <span>Genel Toplam</span>
+                    <span id="cart-total">0.00₺</span>
                 </div>
 
-                <p class="cart-note">
-                    Sipariş için Instagram hesabımıza ürün adı, beden ve renk bilgisiyle mesaj atabilirsin.
+                <p class="cart-summary-note">
+                    Sipariş vermek için Instagram hesabımıza ürün adı, beden ve renk bilgisiyle mesaj gönderebilirsin.
                 </p>
 
-                <a href="https://instagram.com/freedoom_store24" target="_blank" class="button cart-instagram">
-                    Instagram’dan Sipariş Ver
-                </a>
+                <div class="cart-actions">
+                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">
+                        Instagram’dan Sipariş Ver
+                    </a>
 
-                <a href="index.html" class="cart-back">← Alışverişe geri dön</a>
+                    <a href="index.html" class="cart-secondary-btn">
+                        Alışverişe Devam Et
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -244,75 +445,135 @@ showMenu('nav-toggle','nav-menu')
 const SHIPPING_PRICE = 59.99;
 
 function getCart() {
-  return JSON.parse(localStorage.getItem("freedomCart")) || [];
+    return JSON.parse(localStorage.getItem("freedomCart")) || [];
 }
 
 function saveCart(cart) {
-  localStorage.setItem("freedomCart", JSON.stringify(cart));
+    localStorage.setItem("freedomCart", JSON.stringify(cart));
+}
+
+function formatPrice(price) {
+    return Number(price).toFixed(2) + "₺";
+}
+
+function increaseQuantity(productId) {
+    let cart = getCart();
+    const product = cart.find(item => item.id === productId);
+
+    if (product) {
+        product.quantity += 1;
+        saveCart(cart);
+        renderCart();
+    }
+}
+
+function decreaseQuantity(productId) {
+    let cart = getCart();
+    const product = cart.find(item => item.id === productId);
+
+    if (product) {
+        product.quantity -= 1;
+
+        if (product.quantity <= 0) {
+            cart = cart.filter(item => item.id !== productId);
+        }
+
+        saveCart(cart);
+        renderCart();
+    }
 }
 
 function removeFromCart(productId) {
-  let cart = getCart();
-  cart = cart.filter(item => item.id !== productId);
-  saveCart(cart);
-  renderCart();
+    let cart = getCart();
+    cart = cart.filter(item => item.id !== productId);
+    saveCart(cart);
+    renderCart();
+}
+
+function clearCart() {
+    localStorage.removeItem("freedomCart");
+    renderCart();
 }
 
 function renderCart() {
-  const cartContainer = document.getElementById("cart-items");
-  const totalContainer = document.getElementById("cart-total");
-  const subtotalContainer = document.getElementById("cart-subtotal");
-  const cartCount = document.getElementById("cart-count");
+    const cart = getCart();
 
-  if (!cartContainer || !totalContainer || !subtotalContainer) return;
+    const cartItems = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+    const cartSubtotal = document.getElementById("cart-subtotal");
+    const cartShipping = document.getElementById("cart-shipping");
+    const cartTotal = document.getElementById("cart-total");
 
-  const cart = getCart();
+    if (!cartItems) return;
 
-  cartContainer.innerHTML = "";
+    cartItems.innerHTML = "";
 
-  if (cart.length === 0) {
-    cartContainer.innerHTML = "<p>Sepetiniz şu anda boş.</p>";
-    subtotalContainer.textContent = "0₺";
-    totalContainer.textContent = "0₺";
-    if (cartCount) cartCount.textContent = "0";
-    return;
-  }
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <i class='bx bx-cart'></i>
+                <h3>Sepetin şu anda boş</h3>
+                <p>Beğendiğin ürünleri sepete eklediğinde burada görünecek.</p>
+                <a href="index.html#featured" class="button">Ürünlere Git</a>
+            </div>
+        `;
 
-  let subtotal = 0;
-  let totalQuantity = 0;
+        cartCount.textContent = "0";
+        cartSubtotal.textContent = "0.00₺";
+        cartShipping.textContent = "0.00₺";
+        cartTotal.textContent = "0.00₺";
+        return;
+    }
 
-  cart.forEach(product => {
-    subtotal += product.price * product.quantity;
-    totalQuantity += product.quantity;
+    let subtotal = 0;
+    let totalQuantity = 0;
 
-    const item = document.createElement("div");
-    item.classList.add("cart-product");
+    cart.forEach(product => {
+        const lineTotal = product.price * product.quantity;
+        subtotal += lineTotal;
+        totalQuantity += product.quantity;
 
-    item.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <div class="cart-product-info">
-        <div class="cart-product-name">${product.name}</div>
-        <div class="cart-product-detail">Adet: ${product.quantity}</div>
-        <div class="cart-product-detail">Beden: S / M / L / XL</div>
-        <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
-      </div>
-      <div class="cart-product-price">${(product.price * product.quantity).toFixed(2)}₺</div>
-      <button class="cart-remove-btn" onclick="removeFromCart('${product.id}')">Sil</button>
-    `;
+        const item = document.createElement("div");
+        item.classList.add("cart-product");
 
-    cartContainer.appendChild(item);
-  });
+        item.innerHTML = `
+            <div class="cart-product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
 
-  const total = subtotal + SHIPPING_PRICE;
+            <div class="cart-product-info">
+                <div class="cart-product-name">${product.name}</div>
+                <div class="cart-product-meta">Beden: S / M / L / XL</div>
+                <div class="cart-product-meta">Renk: Siyah / Beyaz</div>
+                <div class="cart-product-price">Birim fiyat: ${formatPrice(product.price)}</div>
+            </div>
 
-  subtotalContainer.textContent = subtotal.toFixed(2) + "₺";
-  totalContainer.textContent = total.toFixed(2) + "₺";
-  if (cartCount) cartCount.textContent = totalQuantity;
+            <div class="cart-product-right">
+                <div class="qty-box">
+                    <button class="qty-btn" onclick="decreaseQuantity('${product.id}')">−</button>
+                    <span class="qty-number">${product.quantity}</span>
+                    <button class="qty-btn" onclick="increaseQuantity('${product.id}')">+</button>
+                </div>
+
+                <div class="cart-line-total">${formatPrice(lineTotal)}</div>
+
+                <button class="cart-remove-btn" onclick="removeFromCart('${product.id}')">Ürünü Sil</button>
+            </div>
+        `;
+
+        cartItems.appendChild(item);
+    });
+
+    const shipping = subtotal > 0 ? SHIPPING_PRICE : 0;
+    const total = subtotal + shipping;
+
+    cartCount.textContent = totalQuantity;
+    cartSubtotal.textContent = formatPrice(subtotal);
+    cartShipping.textContent = formatPrice(shipping);
+    cartTotal.textContent = formatPrice(total);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderCart();
-});
+document.addEventListener("DOMContentLoaded", renderCart);
 </script>
 
 </body>
