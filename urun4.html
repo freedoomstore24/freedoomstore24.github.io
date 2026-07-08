@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freedom Premium Polo Yaka</title>
+    <title>Freedom Premium Polo Yaka | FREEDOM</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -18,7 +18,7 @@
             </a>
         </div>
 
-        <div class="nav__menu">
+        <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html#featured" class="nav__link">Ürünler</a></li>
                 <li class="nav__item"><a href="index.html#new" class="nav__link">Yeni Sezon</a></li>
@@ -27,7 +27,9 @@
         </div>
 
         <div>
-            <i class="bx bx-cart nav__cart"></i>
+            <a href="sepet.html" class="nav__cart-link">
+                <i class="bx bx-cart nav__cart"></i>
+            </a>
         </div>
     </nav>
 </header>
@@ -52,8 +54,20 @@
                 </p>
 
                 <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-                    <a href="sepet.html" class="button">Sepete Ekle</a>
-                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">Instagram’dan Sipariş Ver</a>
+                    <button
+                        class="button add-to-cart"
+                        data-id="urun4"
+                        data-name="Freedom Premium Polo Yaka"
+                        data-price="449"
+                        data-image="img/tshirt12.jpeg"
+                        style="border:none; cursor:pointer;"
+                    >
+                        Sepete Ekle
+                    </button>
+
+                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">
+                        Instagram’dan Sipariş Ver
+                    </a>
                 </div>
             </div>
 
@@ -61,5 +75,6 @@
     </section>
 </main>
 
+<script src="js/main.js"></script>
 </body>
 </html>
