@@ -3,54 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sepet | FREEDOM</title>
+    <title>Sepetim | FREEDOM</title>
+
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        .cart-page{
+            padding: 7rem 0 4rem;
+            min-height: 100vh;
+            background: #f8f8f8;
+        }
+
+        .cart-wrapper{
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .cart-title{
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #111;
+        }
+
+        .cart-grid{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .cart-products,
+        .cart-summary{
+            background: #fff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,.06);
+        }
+
+        .cart-product{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-product:last-child{
+            border-bottom: none;
+        }
+
+        .cart-product img{
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #f3f3f3;
+        }
+
+        .cart-product-info{
+            flex: 1;
+        }
+
+        .cart-product-name{
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: .35rem;
+            color: #111;
+        }
+
+        .cart-product-detail{
+            font-size: .9rem;
+            color: #666;
+            margin-bottom: .2rem;
+        }
+
+        .cart-product-price{
+            font-size: 1rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .cart-summary h2{
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .cart-summary-row{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .9rem;
+            color: #444;
+        }
+
+        .cart-summary-total{
+            display: flex;
+            justify-content: space-between;
+            margin: 1.2rem 0;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .cart-note{
+            font-size: .92rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .cart-instagram{
+            width: 100%;
+            text-align: center;
+        }
+
+        .cart-back{
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: .95rem;
+            color: #555;
+        }
+
+        @media screen and (max-width: 768px){
+            .cart-grid{
+                grid-template-columns: 1fr;
+            }
+
+            .cart-product{
+                align-items: flex-start;
+            }
+
+            .cart-product img{
+                width: 80px;
+                height: 80px;
+            }
+
+            .cart-title{
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header class="l-header">
-    <nav class="nav bd-grid">
-        <div>
-            <a href="index.html" class="nav__logo">
-                <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" width="45">
-                <span>FREEDOM</span>
-            </a>
-        </div>
-
-        <div class="nav__menu">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="index.html#featured" class="nav__link">Ürünler</a></li>
-                <li class="nav__item"><a href="index.html#new" class="nav__link">Yeni Sezon</a></li>
-                <li class="nav__item"><a href="index.html#iletisim" class="nav__link">İletişim</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <a href="sepet.html" class="nav__cart"><i class="bx bx-cart"></i></a>
-        </div>
-    </nav>
-</header>
-
-<main class="l-main" style="padding-top: 120px;">
-    <section class="featured section">
-        <div class="bd-grid" style="max-width: 900px; margin: 0 auto;">
-            <h1 style="font-size: 2rem; margin-bottom: 2rem; text-align:center;">Sepetim</h1>
-
-            <div style="background:#f8f8f8; padding:2rem; border-radius:12px;">
-                <p style="font-size:1.1rem; margin-bottom:1rem;"><strong>Sepetiniz hazır.</strong></p>
-                <p style="color:#555; margin-bottom:2rem;">
-                    Sipariş vermek için Instagram hesabımıza yazabilirsiniz:
-                    <strong>@freedoom_store24</strong>
-                </p>
-
-                <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">
-                    Instagram’dan Sipariş Ver
+    <!-- HEADER -->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">
+                    <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" width="45">
+                    <span>FREEDOM</span>
                 </a>
             </div>
+
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#featured" class="nav__link">Ürünler</a></li>
+                    <li class="nav__item"><a href="index.html#new" class="nav__link">Yeni Sezon</a></li>
+                    <li class="nav__item"><a href="index.html#iletisim" class="nav__link">İletişim</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <a href="sepet.html" class="nav__cart"><i class='bx bx-cart'></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SEPET -->
+    <main class="cart-page">
+        <div class="cart-wrapper">
+            <h1 class="cart-title">Sepetim</h1>
+
+            <div class="cart-grid">
+                <!-- SOL TARAF / ÜRÜNLER -->
+                <div class="cart-products">
+                    <div class="cart-product">
+                        <img src="img/tshirt4.jpeg" alt="Freedom Oversize T-Shirt">
+                        <div class="cart-product-info">
+                            <div class="cart-product-name">Freedom Oversize T-Shirt</div>
+                            <div class="cart-product-detail">Beden: S / M / L / XL</div>
+                            <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
+                        </div>
+                        <div class="cart-product-price">399₺</div>
+                    </div>
+
+                    <div class="cart-product">
+                        <img src="img/sweat4.jpeg" alt="Freedom Heavy Sweatshirt">
+                        <div class="cart-product-info">
+                            <div class="cart-product-name">Freedom Heavy Sweatshirt</div>
+                            <div class="cart-product-detail">Beden: S / M / L / XL</div>
+                            <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
+                        </div>
+                        <div class="cart-product-price">499₺</div>
+                    </div>
+
+                    <div class="cart-product">
+                        <img src="img/tshirt8.jpeg" alt="Freedom Regular Fit T-Shirt">
+                        <div class="cart-product-info">
+                            <div class="cart-product-name">Freedom Regular Fit T-Shirt</div>
+                            <div class="cart-product-detail">Beden: S / M / L / XL</div>
+                            <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
+                        </div>
+                        <div class="cart-product-price">399₺</div>
+                    </div>
+                </div>
+
+                <!-- SAĞ TARAF / ÖZET -->
+                <div class="cart-summary">
+                    <h2>Sipariş Özeti</h2>
+
+                    <div class="cart-summary-row">
+                        <span>Ürünler</span>
+                        <span>3 adet</span>
+                    </div>
+
+                    <div class="cart-summary-row">
+                        <span>Ara Toplam</span>
+                        <span>1297₺</span>
+                    </div>
+
+                    <div class="cart-summary-row">
+                        <span>Kargo</span>
+                        <span>Ücretsiz</span>
+                    </div>
+
+                    <div class="cart-summary-total">
+                        <span>Toplam</span>
+                        <span>1297₺</span>
+                    </div>
+
+                    <p class="cart-note">
+                        Sipariş oluşturmak için Instagram hesabımıza ürün adı, beden ve renk bilgisiyle mesaj atabilirsin.
+                    </p>
+
+                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button cart-instagram">
+                        Instagram’dan Sipariş Ver
+                    </a>
+
+                    <a href="index.html" class="cart-back">← Alışverişe geri dön</a>
+                </div>
+            </div>
         </div>
-    </section>
-</main>
+    </main>
 
 </body>
 </html>
