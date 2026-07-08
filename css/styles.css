@@ -940,3 +940,18 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+.collection__box{
+  display: grid;
+  color: var(--dark-color);
+}
+
+.product-card-link{
+  display: block;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.product-card-link .new__actions{
+  position: relative;
+  z-index: 2;
+}
