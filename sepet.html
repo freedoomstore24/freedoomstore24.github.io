@@ -43,9 +43,10 @@
         }
 
         .cart-product{
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 90px 1fr auto auto;
             gap: 1rem;
+            align-items: center;
             padding: 1rem 0;
             border-bottom: 1px solid #eee;
         }
@@ -60,10 +61,6 @@
             object-fit: cover;
             border-radius: 12px;
             background: #f3f3f3;
-        }
-
-        .cart-product-info{
-            flex: 1;
         }
 
         .cart-product-name{
@@ -85,22 +82,30 @@
             color: #111;
         }
 
+        .cart-remove-btn{
+            border: none;
+            background: #111;
+            color: #fff;
+            padding: .7rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
         .cart-summary h2{
             font-size: 1.2rem;
             margin-bottom: 1.2rem;
         }
 
-        .cart-summary-row{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: .9rem;
-            color: #444;
-        }
-
+        .cart-summary-row,
         .cart-summary-total{
             display: flex;
             justify-content: space-between;
-            margin: 1.2rem 0;
+            margin-bottom: .9rem;
+        }
+
+        .cart-summary-total{
+            margin-top: 1.2rem;
             padding-top: 1rem;
             border-top: 1px solid #eee;
             font-size: 1.15rem;
@@ -112,7 +117,7 @@
             font-size: .92rem;
             color: #666;
             line-height: 1.6;
-            margin-bottom: 1.25rem;
+            margin: 1rem 0 1.25rem;
         }
 
         .cart-instagram{
@@ -133,7 +138,8 @@
             }
 
             .cart-product{
-                align-items: flex-start;
+                grid-template-columns: 1fr;
+                text-align: left;
             }
 
             .cart-product img{
@@ -149,106 +155,72 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="index.html" class="nav__logo">
-                    <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" width="45">
-                    <span>FREEDOM</span>
+<header class="l-header">
+    <nav class="nav bd-grid">
+        <div>
+            <a href="index.html" class="nav__logo">
+                <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" width="45">
+                <span>FREEDOM</span>
+            </a>
+        </div>
+
+        <div class="nav__menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html#featured" class="nav__link">Ürünler</a></li>
+                <li class="nav__item"><a href="index.html#new" class="nav__link">Yeni Sezon</a></li>
+                <li class="nav__item"><a href="index.html#iletisim" class="nav__link">İletişim</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <a href="sepet.html" class="nav__cart">
+                <i class='bx bx-cart'></i>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main class="cart-page">
+    <div class="cart-wrapper">
+        <h1 class="cart-title">Sepetim</h1>
+
+        <div class="cart-grid">
+            <div class="cart-products">
+                <div id="cart-items"></div>
+            </div>
+
+            <div class="cart-summary">
+                <h2>Sipariş Özeti</h2>
+
+                <div class="cart-summary-row">
+                    <span>Ürün Adedi</span>
+                    <span id="cart-count">0</span>
+                </div>
+
+                <div class="cart-summary-row">
+                    <span>Kargo</span>
+                    <span>Ücretsiz</span>
+                </div>
+
+                <div class="cart-summary-total">
+                    <span>Toplam</span>
+                    <span id="cart-total">0₺</span>
+                </div>
+
+                <p class="cart-note">
+                    Sipariş için Instagram hesabımıza ürün adı, beden ve renk bilgisiyle mesaj atabilirsin.
+                </p>
+
+                <a href="https://instagram.com/freedoom_store24" target="_blank" class="button cart-instagram">
+                    Instagram’dan Sipariş Ver
                 </a>
-            </div>
 
-            <div class="nav__menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="index.html#featured" class="nav__link">Ürünler</a></li>
-                    <li class="nav__item"><a href="index.html#new" class="nav__link">Yeni Sezon</a></li>
-                    <li class="nav__item"><a href="index.html#iletisim" class="nav__link">İletişim</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <a href="sepet.html" class="nav__cart"><i class='bx bx-cart'></i></a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- SEPET -->
-    <main class="cart-page">
-        <div class="cart-wrapper">
-            <h1 class="cart-title">Sepetim</h1>
-
-            <div class="cart-grid">
-                <!-- SOL TARAF / ÜRÜNLER -->
-                <div class="cart-products">
-                    <div class="cart-product">
-                        <img src="img/tshirt4.jpeg" alt="Freedom Oversize T-Shirt">
-                        <div class="cart-product-info">
-                            <div class="cart-product-name">Freedom Oversize T-Shirt</div>
-                            <div class="cart-product-detail">Beden: S / M / L / XL</div>
-                            <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
-                        </div>
-                        <div class="cart-product-price">399₺</div>
-                    </div>
-
-                    <div class="cart-product">
-                        <img src="img/sweat4.jpeg" alt="Freedom Heavy Sweatshirt">
-                        <div class="cart-product-info">
-                            <div class="cart-product-name">Freedom Heavy Sweatshirt</div>
-                            <div class="cart-product-detail">Beden: S / M / L / XL</div>
-                            <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
-                        </div>
-                        <div class="cart-product-price">499₺</div>
-                    </div>
-
-                    <div class="cart-product">
-                        <img src="img/tshirt8.jpeg" alt="Freedom Regular Fit T-Shirt">
-                        <div class="cart-product-info">
-                            <div class="cart-product-name">Freedom Regular Fit T-Shirt</div>
-                            <div class="cart-product-detail">Beden: S / M / L / XL</div>
-                            <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
-                        </div>
-                        <div class="cart-product-price">399₺</div>
-                    </div>
-                </div>
-
-                <!-- SAĞ TARAF / ÖZET -->
-                <div class="cart-summary">
-                    <h2>Sipariş Özeti</h2>
-
-                    <div class="cart-summary-row">
-                        <span>Ürünler</span>
-                        <span>3 adet</span>
-                    </div>
-
-                    <div class="cart-summary-row">
-                        <span>Ara Toplam</span>
-                        <span>1297₺</span>
-                    </div>
-
-                    <div class="cart-summary-row">
-                        <span>Kargo</span>
-                        <span>Ücretsiz</span>
-                    </div>
-
-                    <div class="cart-summary-total">
-                        <span>Toplam</span>
-                        <span>1297₺</span>
-                    </div>
-
-                    <p class="cart-note">
-                        Sipariş oluşturmak için Instagram hesabımıza ürün adı, beden ve renk bilgisiyle mesaj atabilirsin.
-                    </p>
-
-                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button cart-instagram">
-                        Instagram’dan Sipariş Ver
-                    </a>
-
-                    <a href="index.html" class="cart-back">← Alışverişe geri dön</a>
-                </div>
+                <a href="index.html" class="cart-back">← Alışverişe geri dön</a>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
+<script src="js/main.js"></script>
 </body>
 </html>
