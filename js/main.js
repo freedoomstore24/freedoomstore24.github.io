@@ -96,15 +96,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const addButtons = document.querySelectorAll(".add-to-cart");
 
   addButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const product = {
-        id: button.dataset.id,
-        name: button.dataset.name,
-        price: Number(button.dataset.price),
-        image: button.dataset.image
-      };
+    button.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-      addToCart(product);
-    });
+    const product = {
+      id: button.dataset.id,
+      name: button.dataset.name,
+      price: Number(button.dataset.price),
+      image: button.dataset.image
+    };
+
+    addToCart(product);
   });
 });
