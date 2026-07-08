@@ -32,7 +32,26 @@
             </div>
 
             <div>
-                <a href="sepet.html" class="nav__cart"><i class="bx bx-cart"></i></a>
+                <a href="sepet.html" class="nav__cart" style="position: relative; display: inline-flex; align-items:center;">
+                    <i class="bx bx-cart"></i>
+                    <span id="cart-count" style="
+                        position:absolute;
+                        top:-8px;
+                        right:-10px;
+                        background:#000;
+                        color:#fff;
+                        font-size:12px;
+                        min-width:18px;
+                        height:18px;
+                        border-radius:50%;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        padding:0 5px;
+                        font-weight:700;
+                        line-height:1;
+                    ">0</span>
+                </a>
                 <i class="bx bx-menu nav__toggle" id="nav-toggle"></i>
             </div>
         </nav>
@@ -343,10 +362,28 @@
     <!--===== MAIN JS =====-->
     <script src="js/main.js"></script>
 
-    <!--===== ADD TO CART SCRIPT =====-->
+    <!--===== ADD TO CART + LIVE CART COUNT =====-->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        const cartCount = document.getElementById("cart-count");
+
+        function getCart() {
+            return JSON.parse(localStorage.getItem("freedomCart")) || [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem("freedomCart", JSON.stringify(cart));
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const totalCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+            if (cartCount) {
+                cartCount.textContent = totalCount;
+            }
+        }
 
         addToCartButtons.forEach(button => {
             button.addEventListener("click", function () {
@@ -358,7 +395,7 @@
                     quantity: 1
                 };
 
-                let cart = JSON.parse(localStorage.getItem("freedomCart")) || [];
+                let cart = getCart();
                 const existingProduct = cart.find(item => item.id === product.id);
 
                 if (existingProduct) {
@@ -367,10 +404,13 @@
                     cart.push(product);
                 }
 
-                localStorage.setItem("freedomCart", JSON.stringify(cart));
+                saveCart(cart);
+                updateCartCount();
                 alert(product.name + " sepete eklendi.");
             });
         });
+
+        updateCartCount();
     });
     </script>
 </body>
