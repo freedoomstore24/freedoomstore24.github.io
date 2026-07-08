@@ -198,8 +198,13 @@
                 </div>
 
                 <div class="cart-summary-row">
+                    <span>Ara Toplam</span>
+                    <span id="cart-subtotal">0₺</span>
+                </div>
+
+                <div class="cart-summary-row">
                     <span>Kargo</span>
-                    <span>59.99</span>
+                    <span>59.99₺</span>
                 </div>
 
                 <div class="cart-summary-total">
@@ -221,6 +226,94 @@
     </div>
 </main>
 
-<script src="js/main.js"></script>
+<script>
+/*===== MENU SHOW =====*/
+const showMenu = (toggleId, navId) => {
+  const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId)
+
+  if(toggle && nav){
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show')
+    })
+  }
+}
+showMenu('nav-toggle','nav-menu')
+
+/*===== CART SYSTEM =====*/
+const SHIPPING_PRICE = 59.99;
+
+function getCart() {
+  return JSON.parse(localStorage.getItem("freedomCart")) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem("freedomCart", JSON.stringify(cart));
+}
+
+function removeFromCart(productId) {
+  let cart = getCart();
+  cart = cart.filter(item => item.id !== productId);
+  saveCart(cart);
+  renderCart();
+}
+
+function renderCart() {
+  const cartContainer = document.getElementById("cart-items");
+  const totalContainer = document.getElementById("cart-total");
+  const subtotalContainer = document.getElementById("cart-subtotal");
+  const cartCount = document.getElementById("cart-count");
+
+  if (!cartContainer || !totalContainer || !subtotalContainer) return;
+
+  const cart = getCart();
+
+  cartContainer.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Sepetiniz şu anda boş.</p>";
+    subtotalContainer.textContent = "0₺";
+    totalContainer.textContent = "0₺";
+    if (cartCount) cartCount.textContent = "0";
+    return;
+  }
+
+  let subtotal = 0;
+  let totalQuantity = 0;
+
+  cart.forEach(product => {
+    subtotal += product.price * product.quantity;
+    totalQuantity += product.quantity;
+
+    const item = document.createElement("div");
+    item.classList.add("cart-product");
+
+    item.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <div class="cart-product-info">
+        <div class="cart-product-name">${product.name}</div>
+        <div class="cart-product-detail">Adet: ${product.quantity}</div>
+        <div class="cart-product-detail">Beden: S / M / L / XL</div>
+        <div class="cart-product-detail">Renk: Siyah / Beyaz</div>
+      </div>
+      <div class="cart-product-price">${(product.price * product.quantity).toFixed(2)}₺</div>
+      <button class="cart-remove-btn" onclick="removeFromCart('${product.id}')">Sil</button>
+    `;
+
+    cartContainer.appendChild(item);
+  });
+
+  const total = subtotal + SHIPPING_PRICE;
+
+  subtotalContainer.textContent = subtotal.toFixed(2) + "₺";
+  totalContainer.textContent = total.toFixed(2) + "₺";
+  if (cartCount) cartCount.textContent = totalQuantity;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCart();
+});
+</script>
+
 </body>
 </html>
