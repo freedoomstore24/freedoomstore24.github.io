@@ -1,7 +1,7 @@
-/*===== MENU SHOW =====*/ 
+/*==================== MENU ====================*/
 const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId);
-  const nav = document.getElementById(navId);
+  const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId);
 
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
@@ -9,10 +9,9 @@ const showMenu = (toggleId, navId) => {
     });
   }
 };
-
 showMenu("nav-toggle", "nav-menu");
 
-/*===== CART STORAGE =====*/
+/*==================== CART SYSTEM ====================*/
 const CART_KEY = "freedomCart";
 
 function getCart() {
@@ -23,42 +22,42 @@ function saveCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
-function getCartCount() {
-  const cart = getCart();
-  return cart.reduce((total, item) => total + item.quantity, 0);
-}
-
-/*===== CART BADGE =====*/
 function updateCartBadges() {
-  const count = getCartCount();
-  const badges = document.querySelectorAll("#cart-count, .cart-badge");
+  const cart = getCart();
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
-  badges.forEach((badge) => {
-    badge.textContent = count;
+  document.querySelectorAll("#cart-count").forEach((badge) => {
+    badge.textContent = totalQuantity;
   });
 }
 
-/*===== TOAST =====*/
-function showCartToast(message) {
-  let toast = document.getElementById("cart-toast");
+function showToast(title, text = "") {
+  let container = document.querySelector(".toast-container");
 
-  if (!toast) {
-    toast = document.createElement("div");
-    toast.id = "cart-toast";
-    toast.className = "cart-toast";
-    document.body.appendChild(toast);
+  if (!container) {
+    container = document.createElement("div");
+    container.className = "toast-container";
+    document.body.appendChild(container);
   }
 
-  toast.textContent = message;
-  toast.classList.add("show");
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.innerHTML = `
+    <div class="toast__icon"><i class='bx bx-check-circle'></i></div>
+    <div class="toast__content">
+      <div class="toast__title">${title}</div>
+      <div class="toast__text">${text}</div>
+    </div>
+  `;
 
-  clearTimeout(window.cartToastTimeout);
-  window.cartToastTimeout = setTimeout(() => {
-    toast.classList.remove("show");
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("hide");
+    setTimeout(() => toast.remove(), 250);
   }, 2200);
 }
 
-/*===== ADD TO CART =====*/
 function addToCart(product) {
   const cart = getCart();
   const existingProduct = cart.find((item) => item.id === product.id);
@@ -68,17 +67,29 @@ function addToCart(product) {
   } else {
     cart.push({
       ...product,
-      quantity: 1,
+      quantity: 1
     });
   }
 
   saveCart(cart);
   updateCartBadges();
-  showCartToast(product.name + " sepete eklendi.");
+  showToast("Ürün sepete eklendi", product.name);
 }
 
-/*===== BUTTON EVENTS =====*/
-function bindAddToCartButtons() {
+function removeFromCart(productId) {
+  let cart = getCart();
+  cart = cart.filter((item) => item.id !== productId);
+  saveCart(cart);
+  updateCartBadges();
+
+  if (typeof renderCart === "function") {
+    renderCart();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartBadges();
+
   const addButtons = document.querySelectorAll(".add-to-cart");
 
   addButtons.forEach((button) => {
@@ -87,16 +98,10 @@ function bindAddToCartButtons() {
         id: button.dataset.id,
         name: button.dataset.name,
         price: Number(button.dataset.price),
-        image: button.dataset.image,
+        image: button.dataset.image
       };
 
       addToCart(product);
     });
   });
-}
-
-/*===== INIT =====*/
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartBadges();
-  bindAddToCartButtons();
 });
