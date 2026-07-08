@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freedom Basic T-Shirt</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freedom Basic T-Shirt | FREEDOM</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+
+    <style>
+        .product-page{padding:7rem 0 4rem;min-height:100vh;background:#fff}
+        .product-detail{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+        .product-gallery{background:#f8f8f8;border-radius:24px;padding:2rem;text-align:center}
+        .product-gallery img{width:100%;max-width:420px;object-fit:contain}
+        .product-title{font-size:2rem;margin-bottom:1rem;color:#111;line-height:1.2}
+        .product-price{display:inline-block;font-size:1.5rem;font-weight:700;margin-bottom:1.25rem;color:#111}
+        .product-meta{color:#555;margin-bottom:.7rem;font-size:.98rem}
+        .product-desc{margin:1.4rem 0 2rem;color:#666;line-height:1.8;max-width:560px}
+        .product-actions{display:flex;gap:1rem;flex-wrap:wrap}
+        .product-actions .button{border:none;cursor:pointer}
+        @media screen and (min-width:900px){.product-detail{grid-template-columns:1.05fr .95fr;gap:3rem}}
+    </style>
 </head>
 <body>
 
 <header class="l-header">
     <nav class="nav bd-grid">
-        <div>
-            <a href="index.html" class="nav__logo">
-                <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" width="45">
-                <span>FREEDOM</span>
-            </a>
-        </div>
+        <a href="index.html" class="nav__logo">
+            <img src="img/logo.png" alt="FREEDOM Logo" class="logo-img" />
+            <span>FREEDOM</span>
+        </a>
 
-        <div class="nav__menu">
+        <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html#featured" class="nav__link">Ürünler</a></li>
                 <li class="nav__item"><a href="index.html#new" class="nav__link">Yeni Sezon</a></li>
@@ -27,39 +40,77 @@
         </div>
 
         <div>
-            <i class="bx bx-cart nav__cart"></i>
+            <a href="sepet.html" class="nav__cart" style="position:relative;display:inline-flex;align-items:center;">
+                <i class="bx bx-cart"></i>
+                <span id="cart-count" style="position:absolute;top:-8px;right:-10px;background:#000;color:#fff;font-size:12px;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 5px;font-weight:700;line-height:1;">0</span>
+            </a>
+            <i class="bx bx-menu nav__toggle" id="nav-toggle"></i>
         </div>
     </nav>
 </header>
 
-<main class="l-main" style="padding-top: 120px;">
-    <section class="featured section">
-        <div class="bd-grid" style="grid-template-columns: repeat(2,1fr); align-items:center; gap:2rem;">
-            
-            <div class="featured__box" style="min-height: 420px;">
-                <img src="img/tshirt6.jpeg" class="featured__img" alt="Freedom Basic T-Shirt" style="width:320px;">
+<main class="product-page">
+    <section class="bd-grid product-detail">
+        <div class="product-gallery">
+            <img src="img/tshirt6.jpeg" alt="Freedom Basic T-Shirt" />
+        </div>
+
+        <div class="product-content">
+            <h1 class="product-title">Freedom Basic T-Shirt</h1>
+            <span class="product-price">379₺</span>
+
+            <p class="product-meta"><strong>Beden:</strong> S / M / L / XL</p>
+            <p class="product-meta"><strong>Renk:</strong> Siyah / Beyaz</p>
+
+            <p class="product-desc">
+                Günlük kullanım için sade, rahat ve kaliteli kumaşa sahip Freedom Basic T-Shirt;
+                minimal tarzı sevenler için temiz ve güçlü bir tercih sunar.
+            </p>
+
+            <div class="product-actions">
+                <button
+                    class="button add-to-cart"
+                    data-id="urun5"
+                    data-name="Freedom Basic T-Shirt"
+                    data-price="379"
+                    data-image="img/tshirt6.jpeg"
+                >
+                    Sepete Ekle
+                </button>
+
+                <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">
+                    Instagram’dan Sipariş Ver
+                </a>
             </div>
-
-            <div>
-                <h1 style="font-size:2rem; margin-bottom:1rem;">Freedom Basic T-Shirt</h1>
-                <p style="font-size:1.4rem; font-weight:700; margin-bottom:1rem;">399₺</p>
-
-                <p><strong>Beden:</strong> S / M / L / XL</p>
-                <p><strong>Renk:</strong> Siyah / Beyaz</p>
-
-                <p style="margin-top:1.5rem; color:#555;">
-                    Günlük kullanım için sade, rahat ve kaliteli kumaşa sahip Freedom basic t-shirt modeli.
-                </p>
-
-                <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-                    <a href="sepet.html" class="button">Sepete Ekle</a>
-                    <a href="https://instagram.com/freedoom_store24" target="_blank" class="button">Instagram’dan Sipariş Ver</a>
-                </div>
-            </div>
-
         </div>
     </section>
 </main>
 
+<footer class="footer section" id="iletisim">
+    <div class="footer__container bd-grid">
+        <div class="footer__box">
+            <h3 class="footer__title">FREEDOM</h3>
+            <p class="footer__deal">Premium T-Shirt & Sweatshirt koleksiyonu.</p>
+        </div>
+        <div class="footer__box">
+            <h3 class="footer__title">MENÜ</h3>
+            <ul>
+                <li><a href="index.html" class="footer__link">Ana Sayfa</a></li>
+                <li><a href="index.html#featured" class="footer__link">Ürünler</a></li>
+                <li><a href="index.html#new" class="footer__link">Yeni Koleksiyon</a></li>
+            </ul>
+        </div>
+        <div class="footer__box">
+            <h3 class="footer__title">İLETİŞİM</h3>
+            <a href="https://instagram.com/freedoom_store24" target="_blank" class="footer__social">
+                <i class='bx bxl-instagram-alt'></i> @freedoom_store24
+            </a>
+            <p class="footer__link">freedomstore002@gmail.com</p>
+        </div>
+    </div>
+    <p class="footer__copy">&#169; 2026 FREEDOM. Tüm hakları saklıdır.</p>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
